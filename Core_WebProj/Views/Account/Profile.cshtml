@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<Core_WebProj.Models.ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h1>Profile</h1>
+<h2>Welcome, @Model.Name</h2>
+<p>Email: @Model.Email</p>
+<p>Mobile: @Model.MobileNumber</p>
+<p>Age: @Model.Age</p>
+
+<img src="@Model.ProfilePicturePath" />
+<form asp-action="UploadProfilePic" enctype="multipart/form-data">
+    <input type="file" name="profilePic" />
+    <button type="submit">Upload</button>
+</form>
+
+<a asp-action="DownloadPdf">Download PDF</a>
+
